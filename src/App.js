@@ -2,6 +2,7 @@ import "./index.css"
 import { useState } from "react";
 import PaystackPop from '@paystack/inline-js';
 import swal from "sweetalert";
+require('dotenv').config()
 
 function App() {
 const [email, setEmail] = useState("")
@@ -16,7 +17,7 @@ function PaywithPaystack(e){
 
   paywithpaystack.newTransaction(
     {
-      key:"pk_live_dce275894c6952273b938d73440b1521f4edbf3a",
+      key: process.env.PAYSTACK_API_KEY,
       amount:amount*100,
       email,
       firstname,
